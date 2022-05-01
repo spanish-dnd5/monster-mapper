@@ -1,0 +1,33 @@
+<div class="container">
+  <input
+    type="text"
+    matInput
+    [matAutocomplete]="spanishAutocomplete"
+    [formControl]="spanishControl"
+  />
+
+  <input
+    type="text"
+    matInput
+    [matAutocomplete]="englishAutocomplete"
+    [formControl]="englishControl"
+  />
+
+  <mat-autocomplete
+    #spanishAutocomplete="matAutocomplete"
+    (optionSelected)="getEnglish($event.option.value)"
+  >
+    <mat-option *ngFor="let option of filteredSpanish | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-autocomplete
+    #englishAutocomplete="matAutocomplete"
+    (optionSelected)="getSpanish($event.option.value)"
+  >
+    <mat-option *ngFor="let option of filteredEnglish | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</div>

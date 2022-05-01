@@ -42,5 +42,5 @@ for c in spanish:
     if c['name'] not in exact_results:
         print(c['name'])
 
-with open('monster-mapping.json', 'w') as f:
+with open('src/assets/monster-mapping.json', 'w') as f:
     json.dump(mapping, f)
